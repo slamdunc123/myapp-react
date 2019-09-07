@@ -1,14 +1,18 @@
 import React from 'react';
 import './App.css';
 
-// component views
-import Users from './components/views/Users';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+// component layout
+import Main from './components/layout/Main';
 
 function App() {
   return (
-    <div className='App'>
-      <Users />
-    </div>
+    <Router>
+      <div className='App'>
+        <Main />
+      </div>
+    </Router>
   );
 }
 

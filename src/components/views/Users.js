@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { NavLink } from 'react-router-dom';
+
 class Users extends Component {
   state = {
     userData: []
@@ -20,6 +22,10 @@ class Users extends Component {
       });
   }
 
+  handleUserClick = user => {
+    console.log(user);
+  };
+
   render() {
     return (
       <div>
@@ -31,6 +37,12 @@ class Users extends Component {
               </div>
               <div>{user.firstName}</div>
               <div>{user.lastName}</div>
+              <NavLink
+                to={`/profiles/${user.id}${user.firstName}${user.lastName}`}
+                onClick={() => this.handleUserClick(user)}
+              >
+                View Profile
+              </NavLink>
             </div>
           ))}
         </div>
