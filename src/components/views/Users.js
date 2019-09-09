@@ -38,7 +38,7 @@ class Users extends Component {
               <div>{user.firstName}</div>
               <div>{user.lastName}</div>
               <NavLink
-                to={`/profiles/${user.id}${user.firstName}${user.lastName}`}
+                to={`/profiles/${user.id}`}
                 onClick={() => this.handleUserClick(user)}
               >
                 View Profile
