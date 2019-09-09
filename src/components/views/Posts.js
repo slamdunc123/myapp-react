@@ -32,8 +32,8 @@ class Posts extends Component {
 
             <div>{post.message}</div>
             <div>{post.createdAt}</div>
-            {post.tags.map(tag => (
-              <div key={tag.title}>
+            {post.tags.map((tag, index) => (
+              <div key={index}>
                 <div>{tag.title}</div>
               </div>
             ))}
