@@ -6,7 +6,9 @@ class Posts extends Component {
     postData: [],
     postCommentsData: [],
     postComments: [],
-    postId: null
+    postId: null,
+    showComments: false,
+    showPostComments: null
   };
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -53,22 +55,30 @@ class Posts extends Component {
   }
 
   //   filter comments by post id
-  showPostComments = post => {
-    console.log('You clicked' + post.id);
-    const p = this.state.postCommentsData.filter(
+  showComments = (post, i) => {
+    console.log('You clicked' + post.id, i);
+    const postComments = this.state.postCommentsData.filter(
       postCommentData => postCommentData.postId === post.id
     );
     console.log(this.state.postCommentsData);
-    console.log(p);
+    console.log(postComments);
     this.setState({
       postId: post.id,
-      postComments: p
+      postComments: postComments
     });
     console.log(this.state.postComments);
+    console.log(this.state.postComments.length);
+
+    this.setState({
+      //   showComments: true,
+      showPostComments: i
+    });
+    console.log(this.state.showComments);
   };
 
   render() {
     // const { image, message, createdAt } = this.state.postData;
+    // const showComments = this.state.showComments;
     return (
       <div>
         <div>Posts</div>
@@ -86,16 +96,26 @@ class Posts extends Component {
                 <div>{tag.title}</div>
               </div>
             ))}
-            {/* comment */}
-            <button onClick={() => this.showPostComments(post)}>
+            {/* comments */}
+            <button onClick={() => this.showComments(post, index)}>
               Comments
             </button>
-            {this.state.postComments.map((comment, index) => (
-              <div key={index}>
-                <div>{comment.id}</div>
-                <div>{comment.body}</div>
-              </div>
-            ))}
+            {this.state.showPostComments === index ? (
+              this.state.postComments.length > 0 ? (
+                this.state.postComments.map((comment, index) => (
+                  <div key={index}>
+                    <div>
+                      <div>{comment.id}</div>
+                      <div>{comment.body}</div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div>No comments</div>
+              )
+            ) : (
+              <div></div>
+            )}
           </div>
         ))}
       </div>
