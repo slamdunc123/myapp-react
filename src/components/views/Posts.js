@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Posts extends Component {
   state = {
@@ -75,6 +76,27 @@ class Posts extends Component {
     });
     console.log(this.state.showComments);
   };
+  //   filter comments by post id
+  hideComments = (post, i) => {
+    console.log('You clicked' + post.id, i);
+    const postComments = this.state.postCommentsData.filter(
+      postCommentData => postCommentData.postId === post.id
+    );
+    console.log(this.state.postCommentsData);
+    console.log(postComments);
+    this.setState({
+      postId: post.id,
+      postComments: postComments
+    });
+    console.log(this.state.postComments);
+    console.log(this.state.postComments.length);
+
+    this.setState({
+      //   showComments: true,
+      showPostComments: null
+    });
+    console.log(this.state.showComments);
+  };
 
   render() {
     // const { image, message, createdAt } = this.state.postData;
@@ -97,24 +119,40 @@ class Posts extends Component {
               </div>
             ))}
             {/* comments */}
-            <button onClick={() => this.showComments(post, index)}>
+            {/* <button onClick={() => this.showComments(post, index)}>
               Comments
-            </button>
+            </button> */}
             {this.state.showPostComments === index ? (
               this.state.postComments.length > 0 ? (
                 this.state.postComments.map((comment, index) => (
                   <div key={index}>
                     <div>
+                      <a onClick={() => this.hideComments(post, index)}>
+                        {/* hide */}
+                        <i class='fas fa-chevron-circle-up'></i>
+                      </a>
+
                       <div>{comment.id}</div>
                       <div>{comment.body}</div>
                     </div>
                   </div>
                 ))
               ) : (
-                <div>No comments</div>
+                <div>
+                  <a onClick={() => this.hideComments(post, index)}>
+                    {/* hide */}
+                    <i class='fas fa-chevron-circle-up'></i>
+                  </a>
+                  <div>No comments</div>
+                </div>
               )
             ) : (
-              <div></div>
+              <div>
+                <a onClick={() => this.showComments(post, index)}>
+                  {/* show */}
+                  <i class='fas fa-chevron-circle-down'></i>
+                </a>
+              </div>
             )}
           </div>
         ))}

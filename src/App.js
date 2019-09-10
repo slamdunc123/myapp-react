@@ -9,7 +9,7 @@ import Main from './components/layout/Main';
 function App() {
   return (
     <Router>
-      <div className='App'>
+      <div className='app-container'>
         <Main />
       </div>
     </Router>
