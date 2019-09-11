@@ -39,9 +39,6 @@ class Info extends Component {
     return (
       <div>
         <div>Info</div>
-        <div>
-          <img src={image} alt='' />
-        </div>
         <div>{firstName}</div>
         <div>{lastName}</div>
         <div>{phone}</div>
