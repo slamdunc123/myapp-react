@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import './Posts.scss';
+
 class Posts extends Component {
   state = {
     postData: [],
@@ -102,58 +104,68 @@ class Posts extends Component {
     // const { image, message, createdAt } = this.state.postData;
     // const showComments = this.state.showComments;
     return (
-      <div>
-        <div>Posts</div>
+      <div className='post-container'>
+        {/* <div>Posts</div> */}
 
         {this.state.postData.map((post, index) => (
           <div key={index}>
-            <img src={post.image} alt='' />
-
-            <div>{post.message}</div>
-            <div>{post.createdAt}</div>
-
-            {/* tags */}
-            {post.tags.map((tag, index) => (
-              <div key={index}>
-                <div>{tag.title}</div>
+            <div className='post-block'>
+              <div className='post-block__image'>
+                <img src={post.image} alt='' />
               </div>
-            ))}
-            {/* comments */}
-            {/* <button onClick={() => this.showComments(post, index)}>
+
+              <div className='post-block__message'>{post.message}</div>
+              <div className='post-block__created-at'>{post.createdAt}</div>
+
+              {/* tags */}
+              <div className='post-block__tags'>
+                {post.tags.map((tag, index) => (
+                  <div key={index}>
+                    <div className='post-block__tags--tag'>{tag.title}</div>
+                  </div>
+                ))}
+              </div>
+              {/* comments */}
+              {/* <button onClick={() => this.showComments(post, index)}>
               Comments
             </button> */}
-            {this.state.showPostComments === index ? (
-              this.state.postComments.length > 0 ? (
-                this.state.postComments.map((comment, index) => (
-                  <div key={index}>
+              <div className='post-block__comments'>
+                {this.state.showPostComments === index ? (
+                  this.state.postComments.length > 0 ? (
+                    this.state.postComments.map((comment, index) => (
+                      <div key={index}>
+                        <div>
+                          <a onClick={() => this.hideComments(post, index)}>
+                            {/* hide */}
+                            <i class='fas fa-chevron-circle-up'></i>
+                          </a>
+                        </div>
+                        <div className='post-block__comments-block'>
+                          {comment.id} - {comment.body}
+                        </div>
+                      </div>
+                    ))
+                  ) : (
                     <div>
                       <a onClick={() => this.hideComments(post, index)}>
                         {/* hide */}
                         <i class='fas fa-chevron-circle-up'></i>
                       </a>
-
-                      <div>{comment.id}</div>
-                      <div>{comment.body}</div>
+                      <div className='post-block__comments-block'>
+                        No comments
+                      </div>
                     </div>
+                  )
+                ) : (
+                  <div>
+                    <a onClick={() => this.showComments(post, index)}>
+                      {/* show */}
+                      <i class='fas fa-chevron-circle-down'></i>
+                    </a>
                   </div>
-                ))
-              ) : (
-                <div>
-                  <a onClick={() => this.hideComments(post, index)}>
-                    {/* hide */}
-                    <i class='fas fa-chevron-circle-up'></i>
-                  </a>
-                  <div>No comments</div>
-                </div>
-              )
-            ) : (
-              <div>
-                <a onClick={() => this.showComments(post, index)}>
-                  {/* show */}
-                  <i class='fas fa-chevron-circle-down'></i>
-                </a>
+                )}
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>

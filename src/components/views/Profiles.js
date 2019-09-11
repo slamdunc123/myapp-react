@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './Profiles.scss';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Switch, Route } from 'react-router-dom';
 
 // view components
 
 import Menu from './Menu';
-import Profile from './Profile';
+import Info from './Info';
+import Posts from './Posts';
+import Activity from './Activity';
 
 export default class Profiles extends Component {
   state = {
@@ -62,7 +64,12 @@ export default class Profiles extends Component {
           </div>
         </div>
         <Menu id={id} />
-        <Profile />
+        <Switch>
+          <Route path='/profiles/:id/info' component={Info} />
+          <Route path='/profiles/:id/posts' component={Posts} />
+          <Route path='/profiles/:id/activity' component={Activity} />
+          {/* <Route path='/profiles/:id' component={Profiles} /> */}
+        </Switch>
       </div>
     );
   }
