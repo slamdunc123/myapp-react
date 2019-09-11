@@ -48,11 +48,11 @@ export default class Profiles extends Component {
 
     return (
       <div>
+        <h2>Profile</h2>
         <div className='back-button'>
           <NavLink to='/'>Back</NavLink>
         </div>
 
-        <h2>User {id} Profile</h2>
         <div class='profile-container'>
           <div class='profile-header'>
             <div class='profile-header__image'>

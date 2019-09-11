@@ -8,7 +8,7 @@ import Profiles from '../views/Profiles';
 const Main = () => {
   return (
     <div>
-      Main
+      {/* Main */}
       <Switch>
         <Route exact path='/' component={Users} />
         <Route path='/profiles/:id' component={Profiles} />

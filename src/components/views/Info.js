@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import './Info.scss'
+
 class Info extends Component {
   state = {
     userData: []
@@ -30,6 +32,7 @@ class Info extends Component {
       phone,
       email,
       dob,
+      createdAt,
       //   location: { city = '', state = '' } = {}
       location = {}
     } = this.state.userData;
@@ -38,14 +41,19 @@ class Info extends Component {
     console.log(state);
     return (
       <div>
-        <div>Info</div>
-        <div>{firstName}</div>
-        <div>{lastName}</div>
-        <div>{phone}</div>
-        <div>{email}</div>
-        <div>{dob}</div>
-        <div>{city}</div>
-        <div>{state}</div>
+        <div className="info-details__list">
+          {/* <div>Info</div> */}
+          {/* <div>{firstName}</div>
+        <div>{lastName}</div> */}
+          <div><i class="fas fa-mobile-alt"></i> {phone}</div>
+          <div><i class="fas fa-envelope"></i> {email}</div>
+          <div><i class="fas fa-birthday-cake"></i> {dob}</div>
+          <div><i class="fas fa-home"></i> {city}, {state}</div>
+          <hr />
+        </div>
+        <div class="info_details__member-since">
+          <div><i class="far fa-calendar-check"></i> {createdAt}</div>
+        </div>
       </div>
     );
   }

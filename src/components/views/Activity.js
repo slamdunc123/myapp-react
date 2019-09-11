@@ -30,14 +30,16 @@ class Activity extends Component {
   render() {
     return (
       <div>
-        <div>Activity</div>
+        {/* <div>Activity</div> */}
 
         {this.state.commentsData
           //   .filter(postCommentData => postCommentData.postId === 13)
           .map(comment => (
+
             <div key={comment.id}>
-              <div>{comment.id}</div>
+              <div>Comment: {comment.id}</div>
               <div>{comment.body}</div>
+              <div><hr /></div>
             </div>
           ))}
       </div>

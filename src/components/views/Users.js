@@ -42,7 +42,7 @@ class Users extends Component {
   render() {
     return (
       <div className='users-container'>
-        <Test />
+        {/* <Test /> */}
         <h2>Users</h2>
         {this.state.userData.map(user => (
           <div key={user.id} className='user-block'>
@@ -57,7 +57,7 @@ class Users extends Component {
 
               <NavLink
                 activeClassName='activeRoute'
-                to={`/profiles/${user.id}`}
+                to={`/profiles/${user.id}/info`}
                 onClick={() => this.handleUserClick(user)}
               >
                 {user.firstName}'s Profile
