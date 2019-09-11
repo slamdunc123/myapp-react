@@ -5,6 +5,8 @@ import './Users.scss';
 
 import { NavLink } from 'react-router-dom';
 
+import Test from './Test'
+
 class Users extends Component {
   state = {
     userData: []
@@ -40,6 +42,7 @@ class Users extends Component {
   render() {
     return (
       <div className='users-container'>
+        <Test />
         <h2>Users</h2>
         {this.state.userData.map(user => (
           <div key={user.id} className='user-block'>

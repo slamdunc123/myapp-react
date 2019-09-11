@@ -146,24 +146,24 @@ class Posts extends Component {
                       </div>
                     ))
                   ) : (
-                    <div>
-                      <a onClick={() => this.hideComments(post, index)}>
-                        {/* hide */}
-                        <i class='fas fa-chevron-circle-up'></i>
-                      </a>
-                      <div className='post-block__comments-block'>
-                        No comments
+                      <div>
+                        <a onClick={() => this.hideComments(post, index)}>
+                          {/* hide */}
+                          <i class='fas fa-chevron-circle-up'></i>
+                        </a>
+                        <div className='post-block__comments-block'>
+                          No comments
                       </div>
-                    </div>
-                  )
+                      </div>
+                    )
                 ) : (
-                  <div>
-                    <a onClick={() => this.showComments(post, index)}>
-                      {/* show */}
-                      <i class='fas fa-chevron-circle-down'></i>
-                    </a>
-                  </div>
-                )}
+                    <div>
+                      <a onClick={() => this.showComments(post, index)}>
+                        {/* show */}
+                        <i class='fas fa-chevron-circle-down'></i>
+                      </a>
+                    </div>
+                  )}
               </div>
             </div>
           </div>
