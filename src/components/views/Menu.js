@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Menu.scss';
 
 import { Switch, Route, NavLink } from 'react-router-dom';
 
@@ -11,17 +12,11 @@ class Menu extends Component {
     const { id } = this.props;
     console.log(id);
     return (
-      <div>
-        <div>Menu</div>
+      <div className='menu-container'>
+        {/* <div>Menu</div> */}
         <NavLink to={`/profiles/${id}/info`}>Info</NavLink>
         <NavLink to={`/profiles/${id}/posts`}>Posts</NavLink>
         <NavLink to={`/profiles/${id}/activity`}>Activity</NavLink>
-        <Switch>
-          <Route path='/profiles/:id/info' component={Info} />
-          <Route path='/profiles/:id/posts' component={Posts} />
-          <Route path='/profiles/:id/activity' component={Activity} />
-          {/* <Route path='/profiles/:id' component={Profiles} /> */}
-        </Switch>
       </div>
     );
   }

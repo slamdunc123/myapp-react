@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 
 // view components
 
-import Menu from '../views/Menu';
+import Menu from './Menu';
+import Profile from './Profile';
 
 export default class Profiles extends Component {
   state = {
@@ -61,6 +62,7 @@ export default class Profiles extends Component {
           </div>
         </div>
         <Menu id={id} />
+        <Profile />
       </div>
     );
   }
