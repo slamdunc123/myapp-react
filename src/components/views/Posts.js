@@ -59,45 +59,49 @@ class Posts extends Component {
 
   //   filter comments by post id
   showComments = (post, i) => {
-    console.log('You clicked' + post.id, i);
+    // console.log('You clicked' + post.id, i);
     const postComments = this.state.postCommentsData.filter(
       postCommentData => postCommentData.postId === post.id
     );
-    console.log(this.state.postCommentsData);
-    console.log(postComments);
+    // console.log(this.state.postCommentsData);
+    // console.log(postComments);
     this.setState({
       postId: post.id,
-      postComments: postComments
+      postComments: postComments,
+      // showComments: !this.state.showComments,
+      // showPostComments: i
     });
-    console.log(this.state.postComments);
-    console.log(this.state.postComments.length);
+    // console.log(this.state.postComments);
+    // console.log(this.state.postComments.length);
 
+    // console.log(this.state.showComments);
     this.setState({
-      //   showComments: true,
+      showComments: !this.state.showComments,
       showPostComments: i
     });
-    console.log(this.state.showComments);
   };
   //   filter comments by post id
   hideComments = (post, i) => {
-    console.log('You clicked' + post.id, i);
+    // console.log('You clicked' + post.id, i);
     const postComments = this.state.postCommentsData.filter(
       postCommentData => postCommentData.postId === post.id
     );
-    console.log(this.state.postCommentsData);
-    console.log(postComments);
+    // console.log(this.state.postCommentsData);
+    // console.log(postComments);
     this.setState({
       postId: post.id,
-      postComments: postComments
+      postComments: postComments,
+      // showComments: !this.state.showComments,
+      // showPostComments: null
     });
-    console.log(this.state.postComments);
-    console.log(this.state.postComments.length);
+    // console.log(this.state.postComments);
+    // console.log(this.state.postComments.length);
 
+    // console.log(this.state.showComments);
     this.setState({
-      //   showComments: true,
+      showComments: !this.state.showComments,
       showPostComments: null
     });
-    console.log(this.state.showComments);
   };
 
   render() {
@@ -125,44 +129,42 @@ class Posts extends Component {
                   </div>
                 ))}
               </div>
+
               {/* comments */}
-              {/* <button onClick={() => this.showComments(post, index)}>
-              Comments
-            </button> */}
               <div className='post-block__comments'>
+                <div>
+                  {/* check the boolean value of showComments and the showPostComments values is equal to post index postion  */}
+                  {this.state.showComments && this.state.showPostComments === index ? (
+                    <div>
+                      <a onClick={() => this.hideComments(post, index)}>
+                        <i className='fas fa-chevron-circle-up'></i>
+                      </a>
+                    </div>
+
+                  ) : (
+                      <div>
+                        <a onClick={() => this.showComments(post, index)}>
+                          <i className='fas fa-chevron-circle-down'></i>
+                        </a>
+                      </div>
+                    )}
+                </div>
                 {this.state.showPostComments === index ? (
                   this.state.postComments.length > 0 ? (
                     this.state.postComments.map((comment, index) => (
                       <div key={index}>
-                        <div>
-                          <a onClick={() => this.hideComments(post, index)}>
-                            {/* hide */}
-                            <i class='fas fa-chevron-circle-up'></i>
-                          </a>
-                        </div>
                         <div className='post-block__comments-block'>
                           {comment.id} - {comment.body}
                         </div>
                       </div>
                     ))
                   ) : (
-                      <div>
-                        <a onClick={() => this.hideComments(post, index)}>
-                          {/* hide */}
-                          <i class='fas fa-chevron-circle-up'></i>
-                        </a>
-                        <div className='post-block__comments-block'>
-                          No comments
-                      </div>
+                      <div className='post-block__comments-block'>
+                        No comments
                       </div>
                     )
                 ) : (
-                    <div>
-                      <a onClick={() => this.showComments(post, index)}>
-                        {/* show */}
-                        <i class='fas fa-chevron-circle-down'></i>
-                      </a>
-                    </div>
+                    <div></div>
                   )}
               </div>
             </div>

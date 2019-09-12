@@ -62,5 +62,10 @@
       border: none;
     }
   }
+
+  .reverse {
+    transition: 2s all;
+    transform: rotate(180deg);
+  }
 }
 // }

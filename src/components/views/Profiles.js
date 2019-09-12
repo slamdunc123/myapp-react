@@ -53,12 +53,12 @@ export default class Profiles extends Component {
           <NavLink to='/'>Back</NavLink>
         </div>
 
-        <div class='profile-container'>
-          <div class='profile-header'>
-            <div class='profile-header__image'>
+        <div className='profile-container'>
+          <div className='profile-header'>
+            <div className='profile-header__image'>
               <img src={image} />
             </div>
-            <div class='profile-header__name'>
+            <div className='profile-header__name'>
               {firstName} {lastName}
             </div>
           </div>

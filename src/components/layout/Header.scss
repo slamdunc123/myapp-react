@@ -1,17 +1,38 @@
 .header-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 100%;
-    text-align: center;
-    background-color: black;
-    color: white;
-    font-weight: bold;
+  display: flex;
+  // justify-content: flex-start;
+  // align-items: center;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-weight: bold;
 
+  &__icon {
+    margin: 10px;
+    // border: 1px dotted grey;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
     i {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: #61dafb;
     }
   }
+
+  &__title {
+    margin: 10px;
+    // border: 1px dotted grey;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    h2 {
+
+    }
+  }
+
+  
+}
