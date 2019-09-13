@@ -1,11 +1,49 @@
-.pagination-container {
+.pagination {
   text-align: center;
+   
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0.2em;
+    padding:0.5em;
+    text-decoration:none; 
+  
+
+  
+    
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    a:visited, a:link {
+      text-decoration: none; 
+    }
+  }
+    
+    
+  
+
+  .active {
+    background: gray;
+  border-radius: 5px;
+  
+  a {
+    color: white;
+    
+  }
+
+  
+      
+  }
 }
 
-pagination-controls ::ng-deep .ngx-pagination .current {
-  background: gray;
-  border-radius: 5px;
-}
+
+
+// pagination-controls ::ng-deep .ngx-pagination .current {
+//   background: gray;
+//   border-radius: 5px;
+// }
 
 .comments-container {
   padding: 5px;

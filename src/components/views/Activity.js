@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Pagination from "react-js-pagination";
+import './Activity.scss';
 
-import './Activity.scss'
+
 
 class Activity extends Component {
   state = {
     commentsData: [], // all comments for user
-    postCommentsData: [] // all comments for user filtered by specific post id
+    postCommentsData: [], // all comments for user filtered by specific post id
+    activePage: 1,
+    itemsPerPage: 5,
+    pageRange: 10
   };
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -29,12 +34,37 @@ class Activity extends Component {
         console.log(error);
       });
   }
+
+  handlePageChange(pageNumber) {
+    console.log(this.state.commentsData.length)
+    console.log(pageNumber);
+    console.log(`active page is ${pageNumber}`);
+    this.setState({ activePage: Number(pageNumber) });
+  }
+
   render() {
+
+    var indexOfLastTodo = this.state.activePage * this.state.itemsPerPage;
+    var indexOfFirstTodo = indexOfLastTodo - this.state.itemsPerPage;
+    var renderedProjects = this.state.commentsData.slice(indexOfFirstTodo, indexOfLastTodo);
+    console.log(renderedProjects)
+
+
+
     return (
       <div>
         {/* <div>Activity</div> */}
+        <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={this.state.itemsPerPage}
+          totalItemsCount={this.state.commentsData.length}
+          pageRangeDisplayed={this.state.pageRage}
+          onChange={(e) => this.handlePageChange(e)}
+          prevPageText='Previous'
+          nextPageText='Next'
+        />
 
-        {this.state.commentsData
+        {renderedProjects
           //   .filter(postCommentData => postCommentData.postId === 13)
           .map(comment => (
 
