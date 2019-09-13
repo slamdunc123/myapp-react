@@ -104,6 +104,21 @@ class Posts extends Component {
     });
   };
 
+  formatDate = (postDate) => {
+    let monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+    let date = new Date(postDate);
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let year = date.getFullYear();
+
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  }
+
   render() {
     // const { image, message, createdAt } = this.state.postData;
     // const showComments = this.state.showComments;
@@ -119,7 +134,7 @@ class Posts extends Component {
               </div>
 
               <div className='post-block__message'>{post.message}</div>
-              <div className='post-block__created-at'>{post.createdAt}</div>
+              <div className='post-block__created-at'>Created {this.formatDate(post.createdAt)}</div>
 
               {/* tags */}
               <div className='post-block__tags'>
