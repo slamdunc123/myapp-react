@@ -1,8 +1,26 @@
 .pagination-container {
-    text-align: center;
+  text-align: center;
+}
+
+pagination-controls ::ng-deep .ngx-pagination .current {
+  background: gray;
+  border-radius: 5px;
+}
+
+.comments-container {
+  padding: 5px;
+
+  &__id {
+    margin: 5px 0;
+    font-weight: bold;
   }
-  
-  pagination-controls ::ng-deep .ngx-pagination .current {
-    background: gray;
-    border-radius: 5px;
+
+  &__body {
+    margin-bottom: 20px;
   }
+
+  hr {
+    width: 85%;
+    margin: auto;
+  }
+}

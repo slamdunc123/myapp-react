@@ -76,7 +76,7 @@ class Posts extends Component {
 
     // console.log(this.state.showComments);
     this.setState({
-      showComments: !this.state.showComments,
+      showComments: true,
       showPostComments: i
     });
   };
@@ -99,7 +99,7 @@ class Posts extends Component {
 
     // console.log(this.state.showComments);
     this.setState({
-      showComments: !this.state.showComments,
+      showComments: false,
       showPostComments: null
     });
   };

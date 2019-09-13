@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import './Activity.scss'
+
 class Activity extends Component {
   state = {
     commentsData: [], // all comments for user
@@ -36,9 +38,9 @@ class Activity extends Component {
           //   .filter(postCommentData => postCommentData.postId === 13)
           .map(comment => (
 
-            <div key={comment.id}>
-              <div>Comment: {comment.id}</div>
-              <div>{comment.body}</div>
+            <div key={comment.id} className="comments-container">
+              <div className="comments-container__id" >Comment: {comment.id}</div>
+              <div className="comments-container__body" >{comment.body}</div>
               <div><hr /></div>
             </div>
           ))}

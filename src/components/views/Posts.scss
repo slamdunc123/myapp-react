@@ -24,11 +24,13 @@
 
   &__message {
     flex: 1;
-    border: 1px dotted grey;
+    // border: 1px dotted grey;
+    margin: 5px;
   }
   &__created-at {
     flex: 1;
-    border: 1px dotted grey;
+    // border: 1px dotted grey;
+    margin: 5px;
   }
   &__tags {
     width: 100%;
@@ -37,7 +39,8 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     flex: 1;
-    border: 1px dotted grey;
+    // border: 1px dotted grey;
+    margin: 5px;
 
     &--tag {
       border: 1px dotted grey;
@@ -61,11 +64,6 @@
       background-color: #fff;
       border: none;
     }
-  }
-
-  .reverse {
-    transition: 2s all;
-    transform: rotate(180deg);
   }
 }
 // }
